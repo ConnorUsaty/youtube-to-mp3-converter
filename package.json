@@ -1,9 +1,12 @@
 {
   "name": "youtube-to-mp3",
   "version": "1.0.0",
+  "homepage": "https://ConnorUsaty.github.io/youtube-to-mp3-converter",
   "description": "",
   "main": "app.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js"
   },
@@ -16,6 +19,7 @@
     "node-fetch": "^2.6.11"
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "nodemon": "^2.0.22"
   }
 }

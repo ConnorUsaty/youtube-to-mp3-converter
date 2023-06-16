@@ -30,9 +30,6 @@ app.post("/convert-mp3", async (req, res) => {
     } else {
         // Gets the video ID from the URL
         let videoId = videoUrl.split("v=")[1];
-        while (videoId.includes("&")) {
-            videoId = videoId.split("&")[0];
-        }
 
         const fetchAPI = await fetch(`https://youtube-mp36.p.rapidapi.com/dl?id=${videoId}`, {
             "method": "GET",
@@ -46,7 +43,7 @@ app.post("/convert-mp3", async (req, res) => {
         if (fetchResponse.status === "ok") {
             return res.render("index", {success: true, song_title: fetchResponse.title, song_link: fetchResponse.link});
         } else {
-            return res.render("index", {success: false, error_message: fetchResponse.error});
+            return res.render("index", {success: false, error_message: "Please enter a valid URL"});
         }
     }
 })
